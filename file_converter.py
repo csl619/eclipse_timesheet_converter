@@ -1,9 +1,9 @@
 import xlrd
+import tkinter
 from openpyxl.workbook import Workbook
 from openpyxl import load_workbook
 from datetime import datetime
-
-from tkinter import filedialog, StringVar, messagebox, ttk
+from tkinter import filedialog, StringVar, messagebox, ttk, Label
 from ttkthemes import ThemedTk
 
 
@@ -18,16 +18,17 @@ class Converter:
 
     def __main_window(self):
         self.master.title("Eclispe Timesheet Converter")
+        tkinter.Tk.iconbitmap(self.master, default="converter.ico")
         self.master.resizable(0, 0)
 
     def __style(self):
         self.style = ttk.Style()
-        self.style.configure("BW.Label", padding=6, bg="none", anchor="left")
+        self.style.configure("Text", padding=6, anchor="left")
         self.style.configure("TEntry", bg="white")
 
     def __form(self):
-        self.f_label = ttk.Label(
-            self.master, text="Find Source File:", style="BW.Label")
+        self.f_label = Label(
+            self.master, text="Find Source File:", fg="dimgrey")
         self.f_label.grid(row=1, column=1, padx=10, pady=10)
         self.f_entry = ttk.Entry(
             self.master, textvariable=self.path, width=40, style="TEntry")
@@ -35,11 +36,11 @@ class Converter:
         self.f_button = ttk.Button(
             self.master, text="Browse", command=self.__browse_button)
         self.f_button.grid(row=1, column=3, padx=10, pady=10)
-        self.f_help = ttk.Label(
-            self.master, style="BW.Label",
+        self.f_help = Label(
+            self.master, fg="dimgrey",
             text=(
                 "Please select the .xls file downloaded from Eclipse you want "
-                "to convert"))
+                "to convert."))
         self.f_help.grid(row=2, columnspan=6, padx=10)
         self.createBut = ttk.Button(
             self.master, text="Convert File", command=self.__convert)
@@ -197,11 +198,11 @@ class Converter:
         self.master.destroy()
 
 
-def root():
-    r = ThemedTk(theme="arc")
-    app = Converter(r)
-    r.mainloop()
+def main():
+    root = ThemedTk(theme="arc")
+    app = Converter(root)
+    root.mainloop()
 
 
 if __name__ == '__main__':
-    root()
+    main()
