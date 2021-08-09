@@ -47,3 +47,6 @@ Run the application
 ```bash
   python3 file_converter.py
 ```
+## Screenshots
+
+![App Screenshot](https://imgur.com/28voeNG.png)
