@@ -16,7 +16,7 @@ class Converter:
         self.__form()
 
     def __main_window(self):
-        self.master.title("Eclispe Timesheet Converter")
+        self.master.title("Eclipse Timesheet Converter")
         self.master.resizable(0, 0)
 
     def __style(self):
