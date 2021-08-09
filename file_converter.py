@@ -1,5 +1,4 @@
 import xlrd
-import tkinter
 from openpyxl.workbook import Workbook
 from openpyxl import load_workbook
 from datetime import datetime
@@ -18,7 +17,6 @@ class Converter:
 
     def __main_window(self):
         self.master.title("Eclispe Timesheet Converter")
-        tkinter.Tk.iconbitmap(self.master, default="converter.ico")
         self.master.resizable(0, 0)
 
     def __style(self):
